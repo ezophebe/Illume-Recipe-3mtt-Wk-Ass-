@@ -6,191 +6,234 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    font-size: 1rem; 
+    font-size: 1rem;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-  }
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     body {
-      font-size: 0.9rem;
-      padding: 10px;
+        font-size: 0.9rem;
+        padding: 10px;
     }
-  }
-  
-  @media (min-width: 1024px) {
+}
+
+@media (min-width: 1024px) {
     body {
-      font-size: 1.1rem;
-      padding: 20px;
+        font-size: 1.1rem;
+        padding: 20px;
     }
-  }
-  nav h1 {
-    display: inline;
-  }
-  .highlight {
-    color: green;
-  }
-  nav {
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     border-bottom: 2px solid green;
-   
-  }
-  nav ul {
-    display: inline-flex;
-    flex-direction: row;
+}
+
+.highlight {
+    color: green;
+}
+
+.nav-links {
     list-style: none;
-    align-items: center; 
-    margin-left: 60%;
-   font-size: larger;
-  }
- 
-  nav ul a {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
     text-decoration: none;
     color: black;
     padding: 10px;
     transition: all 0.3s ease;
+}
 
-  } 
-   @keyframes linkColorChange {
+@keyframes linkColorChange {
     0% {
-      color: black;
+        color: black;
     }
     100% {
-      color: green;
+        color: green;
     }
-  }
-  
-  li a:hover {
+}
+
+.nav-links a:hover {
     animation: linkColorChange 0.5s forwards;
-  }
-  .header-one {
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: white;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+
+.header-one {
     font-size: 1.5rem;
     text-align: center;
     background-color: #fafafa;
-    overflow: auto;
-  }
-  .para-img {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    gap: 50px; 
     padding: 20px;
-    margin-left: 130px;
-  }
-  .para-img div {
-    flex: 1; 
 }
+
+.para-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 20px;
+}
+
+.para-img div {
+    flex: 1;
+}
+
 .para-img p {
-  margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.6;
+    font-size: 1.5rem;
+    line-height: 1.6;
 }
 
 .para-img img {
-  max-width: 300px; 
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
+
 @media (max-width: 768px) {
-  .para-img {
-      flex-direction: column;
-      text-align: center;
-      margin-left: 0;
-  }
+    .para-img {
+        flex-direction: column;
+        text-align: center;
+    }
 }
+
 .img-card {
-  display: inline-flex ;
-  align-items: center;                      
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-  gap: 70px;                               
-  padding: 20px;
-  margin-left: 150px;
-  background-color: #cad4d7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background-color: #cad4d7;
 }
+
 .img-card figure {
-  text-align: center;                 
+    text-align: center;
 }
 
 .img-card img {
-  width: 400px;                          
-  height: 400px;                                    
-  object-fit: cover;                     
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  transition: transform 0.3s ease-in-out;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
-figcaption a:hover {
-  animation: linkColorChange 0.5s forwards;
-}
+
 figcaption a {
-  text-decoration: none;
+    text-decoration: none;
     color: black;
     padding: 10px;
     transition: color 0.3s ease;
 }
+
+figcaption a:hover {
+    animation: linkColorChange 0.5s forwards;
+}
+
 .img-card figure:hover img {
-  animation: bounce 0.6s ease-in-out forwards;
+    animation: bounce 0.6s ease-in-out forwards;
 }
 
 @keyframes bounce {
-  0%, 100% {
-      transform: translateY(0); 
-  }
-  50% {
-      transform: translateY(-20px); 
-  }
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
-.ingred {
-  margin-left: 150px;
-}
-.steps {
-  margin-left: 150px;
-}
-.steps h3 a {
-  color: green;
-  text-decoration: none;
-}
+
 footer {
-  background-color: #fafafa;
-  padding: 10px 0px 10px 0px ;
-  text-align: center;
-  color: green;
+    background-color: #fafafa;
+    padding: 10px;
+    text-align: center;
+    color: green;
 }
+@media (max-width: 768px) {
+    .header-two {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-two ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-two li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 
 .header-two {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.header-two ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-}
-.header-two li {
-  background-color: #333;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 18px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.header-two li:hover {
-  transform: translateY(-5px); 
-  background-color: green;
-}
-
-.header-two li a {
-  text-decoration: none;
-  color: white; 
-  font-size: 18px;
-  transition: color 0.3s ease;
-}
-.header-two li:hover a {
-  color: black; 
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-two ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+  }
+  .header-two li {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .header-two li:hover {
+    transform: translateY(-5px); 
+    background-color: green;
+  }
+  
+  .header-two li a {
+    text-decoration: none;
+    color: white; 
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  .header-two li:hover a {
+    color: black; 
+  }
+  
